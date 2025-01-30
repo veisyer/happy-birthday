@@ -27,15 +27,6 @@ const fetchData = () => {
 // Animation Timeline
 const animationTimeline = () => {
   const tl = new TimelineMax({ paused: true });
-  const nextButton = document.createElement("button");
-  nextButton.innerText = "Next";
-  nextButton.style.position = "fixed";
-  nextButton.style.bottom = "20px";
-  nextButton.style.right = "20px";
-  nextButton.style.padding = "10px 20px";
-  nextButton.style.fontSize = "16px";
-  nextButton.style.cursor = "pointer";
-  document.body.appendChild(nextButton);
 
   let step = 0;
   const steps = [
@@ -50,11 +41,9 @@ const animationTimeline = () => {
     () => tl.from(".fake-btn", 0.3, { scale: 0.2, opacity: 0 })
   ];
 
-  nextButton.addEventListener("click", () => {
+  document.addEventListener("click", () => {
     if (step < steps.length) {
       steps[step++]();
-    } else {
-      nextButton.remove();
     }
   });
 
